@@ -1,0 +1,98 @@
+
+<!doctype html>
+<html class="no-js" lang="">
+
+{%include "adminhome/metatag.html"%}
+
+<body>
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+    <!-- Start Left menu area -->
+ 
+    <!-- End Left menu area -->
+    <!-- Start Welcome area -->
+    {%include "adminhome/cheader.html"%}
+    <!-- Mobile Menu start -->
+    {%include "adminhome/mobile_menu.html"%}
+    <!-- Basic Form Start -->
+        <div class="basic-form-area mg-b-15">
+            <div class="container-fluid">
+               
+                
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sparkline12-list">
+                            <div class="sparkline12-hd">
+                                <div class="main-sparkline12-hd">
+                                    <h1>Policy Plan </h1>
+                                </div>
+                            </div>
+                            <div class="sparkline12-graph">
+                                <div class="basic-login-form-ad">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="all-form-element-inner">
+<form name="form1" method="post" id="formID" action="/insuranceclaim/policyplandetailsform/" class="form-horizontal">
+  {% csrf_token %}
+
+  <table width="494" height="520" border="0" align="center">
+    <tr>
+      <td colspan="2"><div align="center"> </div></td>
+    </tr>
+   
+    
+      <tr>
+        <td><div align="center">policy_number</div></td>
+        <td><div align="center">
+          <input name="policy_number" type="text" id="policy_number" class="form-control validate[required,custom[onlyNumber]]">
+        </div></td>
+      </tr>
+    <tr>
+      <td><div align="center">policy_name</div></td>
+      <td><div align="center">
+        <input name="policy_name" type="text" id="policy_name" class="form-control validate[required,custom[onlyLetter]]">
+      </div></td>
+    </tr>
+    
+    <tr>
+        <td><div align="center">duration</div></td>
+        <td><div align="center">
+          <input name="duration" type="text" id="duration" class="form-control validate[required,custom[onlyNumber]]">
+        </div></td>
+      </tr>
+      <tr>
+        <td><div align="center">policy_details</div></td>
+        <td><div align="center">
+          <input name="policy_details" type="text" id="policy_details" class="form-control validate[required,custom[onlyLetter]]">
+          <input type="hidden" name="cid" value="{{request.session.c_id}}">
+        </div></td>
+      </tr>
+        
+   
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" value="Submit" class="btn btn-success btn">
+        <input type="reset" name="Reset" value="Reset" class="btn btn-danger btn">
+      </div></td>
+    </tr>
+  </table>
+</form>
+ </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Basic Form End-->
+        {%include "adminhome/footer.html"%}
+        {%include "adminhome/val.html"%}
+
+
+</body>
+
+</html>

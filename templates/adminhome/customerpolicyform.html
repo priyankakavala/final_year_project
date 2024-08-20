@@ -1,0 +1,133 @@
+
+
+<!doctype html>
+<html class="no-js" lang="">
+
+{%include "adminhome/metatag.html"%}
+
+<body>
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+    <!-- Start Left menu area -->
+   
+    <!-- End Left menu area -->
+    <!-- Start Welcome area -->
+    {%include "adminhome/cheader.html"%}
+    
+    <!-- Mobile Menu start -->
+    {%include "adminhome/mobile_menu.html"%}
+    <!-- Basic Form Start -->
+        <div class="basic-form-area mg-b-15">
+            <div class="container-fluid">
+               
+                
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sparkline12-list">
+                            <div class="sparkline12-hd">
+                                <div class="main-sparkline12-hd">
+                                    <h1>All Form Element</h1>
+                                </div>
+                            </div>
+                            <div class="sparkline12-graph">
+                                <div class="basic-login-form-ad">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="all-form-element-inner">
+<form name="form1" method="post" id="formID" action="/insuranceclaim/customerpolicyform/" class="form-horizontal">
+  {% csrf_token %}
+
+  <table width="494" height="520" border="0" align="center">
+    <tr>
+      <td colspan="2"><div align="center">Customer policy form </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">customer_id </div></td>
+      <td><div align="center">
+        <select name="customer_id" id="customer_id" class="form-control validate[required,custom[onlyNumber]]">
+          <option value="select">select customer_id</option>
+          {%for c in cust%}
+          <option value="{{c.id}}">{{c.customer_firstname}} </option>
+            {%endfor%}
+
+
+
+      </select>
+</div></td>
+    </tr>
+    <tr>
+      <td><div align="center">agent_id</div></td>
+      <td><div align="center">
+        <select name="agent_id" id="agent_id" class="form-control validate[required,custom[onlyNumber]]">
+        <option value="select">select agent_id</option>
+        {%for c in cust1%}
+        <option value="{{c.id}}">{{c.agent_name}} </option>
+          {%endfor%}
+
+        </select>
+</div></td>
+    </tr>
+    <tr>
+        <td><div align="center">policy_plan_id</div></td>
+        <td><div align="center">
+          <select name="policy_plan_id" id="policy_plan_id" class="form-control validate[required,custom[onlyNumber]]">
+          <option value="select">select policy_plan_id</option>
+          {%for c in cust2%}
+          <option value="{{c.id}}">{{c.policy_number}} </option>
+            {%endfor%}
+          </select>
+        </div></td>
+      </tr>
+    
+    <tr>
+      <td><div align="center">total_amount</div></td>
+      <td><div align="center">
+        <input name="total_amount" type="number" id="total_amount" class="form-control validate[required,custom[onlyNumber]]">
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">installment_amount </div></td>
+      <td><div align="center">
+        <input name="installment_amount" type="text" id="installment_amount" class="form-control validate[required,custom[onlyNumber]]">
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">policy_start_date</div></td>
+      <td><div align="center">
+        <input name="policy_start_date" type="date" id="policy_start_date" class="form-control validate[required,custom[date]]">
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">policy_end_date </div></td>
+      <td><div align="center">
+        <input name="policy_end_date" type="date" id="policy_end_date" class="form-control validate[required,custom[date]]">
+      </div></td>
+    </tr>
+    
+   
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" value="Submit" class="btn btn-success btn">
+        <input type="reset" name="Reset" value="Reset" class="btn btn-danger btn">
+      </div></td>
+    </tr>
+  </table>
+</form>
+ </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Basic Form End-->
+        {%include "adminhome/footer.html"%}
+        {%include "adminhome/val.html"%}
+
+</body>
+
+</html>

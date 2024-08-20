@@ -1,0 +1,79 @@
+
+
+<!doctype html>
+<html class="no-js" lang="">
+
+{%include "adminhome/metatag.html"%}
+
+<body>
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+    <!-- Start Left menu area -->
+   
+    <!-- End Left menu area -->
+    <!-- Start Welcome area -->
+    {%include "adminhome/header.html"%}
+    {%include "adminhome/sidebar.html"%}
+    <!-- Mobile Menu start -->
+    {%include "adminhome/mobile_menu.html"%}
+    <!-- Basic Form Start -->
+        
+               
+                
+                                </div>
+                            </div>
+                            <div class="sparkline12-graph">
+                                <div class="container:fixed;">
+                                    <div class="row">
+                                        <div class="col-md-16">
+                                            <div class="card-body-14">
+                                                <div style="overflow-x: auto; max-width:100%;">
+  <table class="table-bordered table-hovr-4" width="494" height="520" border="0" align="center">
+  <thead>
+    <tr>
+        <th>Slno</th>
+        <th>ID </th>
+        <th>Customr Policy Id</th>
+        <th>Total valution</th>
+        <th>Release Date</th>
+        <th>Release Amount</th>
+        <th>Action</th>
+        
+    </tr>
+  </thead>
+  <tbody>
+    {% for a in camt%}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{a.id}}</td>
+        <td>{{a.customer_policy_id}}</td>
+        <td>{{a.total_valuation}}</td>
+        <td>{{a.release_date}}</td>
+        <td>{{a.release_amount}}</td>
+        
+        <td><a href="/insuranceclaim/claimamountformedit/{{a.id}}" class="btn btn-primary btn-sm">Edit</a></td>
+        <td><a href="/insuranceclaim/claimamountformdelete/{{a.id}}" class="btn btn-danger btn-sm">Delete</a></td>        
+    </tr>
+    {%endfor%}
+  </tbody>
+
+   
+  </table>
+</div>
+ </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Basic Form End-->
+        {%include "adminhome/footer.html"%}
+<?php include('val.php'); ?>
+</body>
+
+</html>

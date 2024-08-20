@@ -1,0 +1,84 @@
+
+<!doctype html>
+<html class="no-js" lang="">
+
+{%include "adminhome/metatag.html"%}
+
+<body>
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+    <!-- Start Left menu area -->
+   
+    <!-- End Left menu area -->
+    <!-- Start Welcome area -->
+    {%include "adminhome/cheader.html"%}
+    
+    <!-- Mobile Menu start -->
+    {%include "adminhome/mobile_menu.html"%}
+    <!-- Basic Form Start -->
+        
+               
+                
+    <div class="data-table-area mg-b-15">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="sparkline13-list">
+                        <div class="sparkline13-hd">
+                            <div class="main-sparkline13-hd">
+                                <h1> <span class="table-project-n">Agent </span> Table</h1>
+                            </div>
+                        </div>
+                        <div class="sparkline13-graph">
+                            <div class="datatable-dashv1-list custom-datatable-overright">
+                                
+                                <table id="table" data-toggle="table" data-pagination="true" data-search="true" >
+                                    <thead>
+    <tr>
+        <th>Slno</th>
+        <th>ID </th>
+        <th>Company_id</th>
+        <th>Adent name</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Addres</th>
+        <th>City</th>
+        <th>Contacct</th>
+        <th>Email id</th>
+        <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for a in agnt%}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{a.id}}</td>
+        <td>{{a.company_id}}</td>
+        <td>{{a.agent_name}}</td>
+        <td>{{a.dob}}</td>
+        <td>{{a.gender}}</td>
+        <td>{{a.address}}</td>
+        <td>{{a.city}}</td>
+        <td>{{a.contact_no}}</td>
+        <td>{{a.email}}</td>
+        <td><a href="/insuranceclaim/agentdetailsedit/{{a.id}}" class="btn btn-primary btn-sm">Edit</a></td>
+        <td><a href="/insuranceclaim/agentdetailsdelete/{{a.id}}" class="btn btn-danger btn-sm">Delete</a></td>
+        
+    </tr>
+    {%endfor%}
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+        <!-- Basic Form End-->
+        {%include "adminhome/footer.html"%}
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+{%include "adminhome/metatag.html"%}
+
+<body>
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+    <!-- Start Left menu area -->
+   
+    <!-- End Left menu area -->
+    <!-- Start Welcome area -->
+    {%include "adminhome/cheader.html"%}
+    
+    <!-- Mobile Menu start -->
+    {%include "adminhome/mobile_menu.html"%}
+    <!-- Basic Form Start -->
+        
+               
+</div>
+</div>
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
+                    <div class="sparkline13-hd">
+                        <div class="main-sparkline13-hd">
+                            <h1> Customer<span class="table-project-n">Policy </span>Claim Requests</h1>
+                        </div>
+                    </div>
+                    <div class="sparkline13-graph">
+                        <div class="datatable-dashv1-list custom-datatable-overright">
+                            
+                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" >
+                                <thead>
+    <tr>
+        <th>Slno</th>
+        <th>ID </th>
+        <th>Customer Id   </th>
+        <th>Customer Policy Id </th>
+        <th>Claim Type  </th>
+        <th>Vehicle Number</th>
+        <th>Vehicle Name</th>
+        <th>Vehicle Value</th>
+        <th>Vehicle Condition</th>
+        <th>Image_1</th>
+        <th>Image_2</th>
+        <th>Image_3</th>
+        <th>Status</th>
+        <th>Action</th>
+
+        
+    </tr>
+  </thead>
+  <tbody>
+    {% for a in vcv%}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{a.id}}</td>
+        <td>{{a.customer_id}}</td>
+        <td>{{a.customer_policy_id}}</td>
+        <td>{{a.claim_type}}</td>
+        <td>{{a.vehicle_number}}</td>
+        <td>{{a.vehicle_name}}</td>
+        <td>{{a.vehicle_value}}</td>
+        <td>{{a.vehicle_condition}}</td>
+        <td><img src="{{a.image_1.url}}" height="150" width="200"></td>
+       
+       
+        <td><img src="{{a.image_2.url}}" height="150" width="200"></td>
+     
+        
+        <td><img src="{{a.image_3.url}}" height="150" width="200"></td>
+        {% if a.status == 'New Request'%}
+
+        <td class="btn btn-warning">New  Policy Claim Requested By{{a.customer_id}} </td>
+        <td><a href="/insuranceclaim/vehicleclaimedit/{{a.id}}" class="btn btn-primary btn-sm">Take Action</a></td>
+        {%endif%}
+        {% if a.status == 'Send For Verification'%}
+
+        <td class="btn btn-info">WE Sent For Verification, WE Update Soon {{a.customer_id}} </td>
+        <td><a href="/insuranceclaim/vehicleclaimedit/{{a.id}}" class="btn btn-primary btn-sm">Take Action</a></td>
+        {%endif%}
+        {% if a.status == 'Approved'%}
+
+        <td class="btn btn-success">We Have Approved & Clamed Rs.{{a.vehicle_value}}  </td>
+        {%endif%}
+        
+       
+        
+    </tr>
+    {%endfor%}
+  </tbody>
+
+   
+  </table>
+</div>
+ </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Basic Form End-->
+        {%include "adminhome/footer.html"%}
+<?php include('val.php'); ?>
+</body>
+
+</html>

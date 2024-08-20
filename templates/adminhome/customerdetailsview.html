@@ -1,0 +1,93 @@
+
+<!doctype html>
+<html class="no-js" lang="">
+
+{%include "adminhome/metatag.html"%}
+
+<body>
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+    <!-- Start Left menu area -->
+   
+    <!-- End Left menu area -->
+    <!-- Start Welcome area -->
+    {%include "adminhome/cheader.html"%}
+    
+    <!-- Mobile Menu start -->
+    {%include "adminhome/mobile_menu.html"%}
+    <!-- Basic Form Start -->
+        
+               
+</div>
+</div>
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
+                    <div class="sparkline13-hd">
+                        <div class="main-sparkline13-hd">
+                            <h1> Customer<span class="table-project-n">Policy </span>Regitrations</h1>
+                        </div>
+                    </div>
+                    <div class="sparkline13-graph">
+                        <div class="datatable-dashv1-list custom-datatable-overright">
+                            <a href="/insuranceclaim/customerdetailsform/" class="btn btn-success">New Customer Details </a>
+                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" >
+                                <thead>
+    <tr>
+        <th>Slno</th>
+        <th>ID </th>
+        <th>Customer Firstname</th>
+        <th>Customer Lastname</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Addres</th>
+        <th>City</th>
+        <th>Mobile_no</th>
+        <th>Email id</th>
+        <th>Image</th>
+        <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for a in custd%}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{a.id}}</td>
+        <td>{{a.customer_firstname}}</td>
+        <td>{{a.customer_lastname}}</td>
+        <td>{{a.dob}}</td>
+        <td>{{a.gender}}</td>
+        <td>{{a.address}}</td>
+        <td>{{a.city}}</td>
+        <td>{{a.mobile_no}}</td>
+        <td>{{a.email_id}}</td>
+        <td><img src="{{a.image.url}}" height="150" width="150"></td>
+        <td><a href="/insuranceclaim/customerdetailsedit/{{a.id}}" class="btn btn-primary btn-sm">Edit</a></td>
+        <td><a href="/insuranceclaim/customerdetailsdelete/{{a.id}}" class="btn btn-danger btn-sm">Delete</a></td> 
+        
+    </tr>
+    {%endfor%}
+  </tbody>
+
+   
+  </table>
+</div>
+ </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Basic Form End-->
+        {%include "adminhome/footer.html"%}
+<?php include('val.php'); ?>
+</body>
+
+</html>
